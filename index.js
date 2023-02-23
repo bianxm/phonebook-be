@@ -68,9 +68,16 @@ app.get('/api/persons', (request, response) => {
 });
 
 app.get('/info', (request, response) => {
-    response.send(
+/*     response.send(
         `Phonebook has info for ${persons.length} people.<br /> 
-        ${Date()}`);
+        ${Date()}`); */
+        Person.countDocuments({}).then(docCount => {
+            response.send(`Phonebook has info for ${docCount} people.<br />
+            ${Date()}`);
+        }).catch(err => {
+            console.log(err);
+            response.send(`Error`);
+        });
 });
 
 app.get('/api/persons/:id', (request, response, next) => {
