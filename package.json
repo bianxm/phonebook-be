@@ -4,8 +4,8 @@
   "description": "Phonebook backend following FSO starting Part 3",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../../2-serverComm/phonebook/ && npm run build && cp -r build ../../3-nodejs_express/phonebook-be/",
     "deploy": "fly deploy",
@@ -22,7 +22,6 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "eslint": "^8.34.0",
     "nodemon": "^2.0.20"
   }
 }
